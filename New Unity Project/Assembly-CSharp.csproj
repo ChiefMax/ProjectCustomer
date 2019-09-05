@@ -65,6 +65,11 @@
     <Compile Include="Assets\SampleScenes\Scripts\ParticleSceneControls.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
+    <Compile Include="Assets\Scripts\ClosingScriptHandler.cs" />
+    <Compile Include="Assets\Scripts\CurserScript.cs" />
+    <Compile Include="Assets\Scripts\Dialogue.cs" />
+    <Compile Include="Assets\Scripts\DialogueManager.cs" />
+    <Compile Include="Assets\Scripts\DialogueTrigger.cs" />
     <Compile Include="Assets\Scripts\MainMenuScript.cs" />
     <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
     <Compile Include="Assets\Tutorial_Info\Scripts\Readme.cs" />
