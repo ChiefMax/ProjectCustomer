@@ -51,6 +51,5 @@ public class DialogueManager : MonoBehaviour
         Debug.Log("Ending");
         firstPersonController.enabled = true;
         Cursor.lockState = CursorLockMode.Locked;
-        //firstPersonController.SetActive(true);
     }
 }
