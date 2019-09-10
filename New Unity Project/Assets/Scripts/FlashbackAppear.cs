@@ -8,7 +8,7 @@ public class FlashbackAppear : MonoBehaviour
     [SerializeField]
     private Material[] flashbacks;
     [SerializeField]
-    private RawImage UIImage;
+    private GameObject UIImage;
     float timeLeft = 3f;
     float endFlashback = 5f;
 
@@ -22,7 +22,7 @@ public class FlashbackAppear : MonoBehaviour
         if (other.CompareTag("FlashbackPhone"))
         {
             Debug.Log("PhoneFlashback");
-            UIImage.enabled = true;
+            UIImage.SetActive(true);
             PhoneFlashback = true;
 
         }
@@ -30,14 +30,9 @@ public class FlashbackAppear : MonoBehaviour
         if (other.CompareTag("FlashbackParty"))
         {
             Debug.Log("PartyFlashback");
-            UIImage.enabled = true;
+            UIImage.SetActive(true);
             PartyFlashback = true;
         }
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        
     }
 
     // Start is called before the first frame update
