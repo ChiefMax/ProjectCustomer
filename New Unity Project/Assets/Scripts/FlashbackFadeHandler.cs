@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FlashbackFadeHandler : MonoBehaviour
 {
     public CanvasGroup UIElement;
+    [SerializeField]
+    private RawImage UIImage;
     bool fadeinStarted = false;
 
     void OnEnabled()
