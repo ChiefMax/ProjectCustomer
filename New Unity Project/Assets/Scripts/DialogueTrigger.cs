@@ -8,7 +8,7 @@ public class DialogueTrigger : MonoBehaviour
 
     public void TriggerDialogue()
     {
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        //FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
     }
 
     public void TriggerTest()
@@ -18,7 +18,7 @@ public class DialogueTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Test Dialog.");
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        //Debug.Log("Test Dialog.");
+        //FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
     }
 }

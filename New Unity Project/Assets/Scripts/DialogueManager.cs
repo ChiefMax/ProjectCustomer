@@ -24,8 +24,8 @@ public class DialogueManager : MonoBehaviour
         timeLeft -= Time.deltaTime;
         if (timeLeft < 0)
         {
-            Debug.Log("In Here.");
-            DisplayNextSentence();
+            //Debug.Log("In Here.");
+            //DisplayNextSentence();
         }
     }
 
@@ -33,7 +33,7 @@ public class DialogueManager : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         //fpsEnable = firstPersonController.GetComponent(typeof(ScriptableObject));
-        Debug.Log("Staring conversation with: " + dialogue.name);
+        //Debug.Log("Staring conversation with: " + dialogue.name);
 
         sentences.Clear();
 
@@ -60,7 +60,7 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialog()
     {
-        Debug.Log("Ending");
+        //Debug.Log("Ending");
         firstPersonController.enabled = true;
         Cursor.lockState = CursorLockMode.Locked;
     }
