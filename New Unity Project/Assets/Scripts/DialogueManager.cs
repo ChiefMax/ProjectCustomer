@@ -11,10 +11,22 @@ public class DialogueManager : MonoBehaviour
     public TMP_Text dialogueText;
     public MonoBehaviour firstPersonController;
 
+    float timeLeft = 5f;
+
     // Start is called before the first frame update
     void Start()
     {
         sentences = new Queue<string>();
+    }
+
+    public void Update()
+    {
+        timeLeft -= Time.deltaTime;
+        if (timeLeft < 0)
+        {
+            Debug.Log("In Here.");
+            DisplayNextSentence();
+        }
     }
 
     public void StartDialogue(Dialogue dialogue)
