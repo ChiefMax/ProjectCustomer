@@ -6,9 +6,12 @@ using UnityEngine.UI;
 public class FlashbackAppear : MonoBehaviour
 {
     [SerializeField]
-    private Sprite[] flashbacks;
+    private Sprite flashbacks;
     [SerializeField]
     private Image UIImage;
+
+    [SerializeField]
+    private Animator anim;
 
     SpriteRenderer rend;
 
@@ -18,16 +21,18 @@ public class FlashbackAppear : MonoBehaviour
     bool PartyFlashback = false;
     bool PhoneFlashback = false;
 
+    bool once = false;
     bool resetUIFlashback = false;
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("FlashbackPhone"))
+        if (/*other.CompareTag("FlashbackPhone")*/other.CompareTag("Player") && once == false)
         {
             Debug.Log("PhoneFlashback");
+            StartCoroutine(Fading());
             UIImage.enabled = true;
             PhoneFlashback = true;
-
+            once = true;
         }
 
         if (other.CompareTag("FlashbackParty"))
@@ -54,10 +59,10 @@ public class FlashbackAppear : MonoBehaviour
         {
             timeLeft -= Time.deltaTime;
         }
-        if (/*timeLeft < 0 &&*/ PhoneFlashback)
+        if (PhoneFlashback)
         {
             Debug.Log("UI Appearing Phone");
-            UIImage.sprite = flashbacks[1];
+            UIImage.sprite = flashbacks;
 
             endFlashback -= Time.deltaTime;
             if (endFlashback < 0)
@@ -66,16 +71,16 @@ public class FlashbackAppear : MonoBehaviour
             }
         }
 
-        if (/*timeLeft < 0 &&*/ PartyFlashback)
-        {
-            Debug.Log("UI Appearing Party");
-            UIImage.sprite = flashbacks[2];
-            endFlashback -= Time.deltaTime;
-            if (endFlashback < 0)
-            {
-                ResetFlashback();
-            }
-        }
+        //if (/*timeLeft < 0 &&*/ PartyFlashback)
+        //{
+        //    Debug.Log("UI Appearing Party");
+        //    UIImage.sprite = flashbacks;
+        //    endFlashback -= Time.deltaTime;
+        //    if (endFlashback < 0)
+        //    {
+        //        ResetFlashback();
+        //    }
+        //}
     }
 
     void ResetFlashback()
@@ -87,8 +92,15 @@ public class FlashbackAppear : MonoBehaviour
         UIImage.enabled = false;
         timeLeft = 3f;
         endFlashback = 3f;
-        UIImage.sprite = flashbacks[0];
-        FadeOut();
+        once = false;
+        //UIImage.sprite = flashbacks;
+        //FadeOut();
+    }
+
+    IEnumerator Fading()
+    {
+        anim.SetBool("Fade", true);
+        yield return new WaitUntil(() => UIImage.color.a == 1);
     }
 
     public void StartFading()
