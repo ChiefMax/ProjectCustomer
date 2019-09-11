@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\DialogueManager.cs" />
     <Compile Include="Assets\Scripts\DialogueTrigger.cs" />
     <Compile Include="Assets\Scripts\FlashbackAppear.cs" />
+    <Compile Include="Assets\Scripts\FlashbackFadeHandler.cs" />
     <Compile Include="Assets\Scripts\MainMenuScript.cs" />
     <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
     <Compile Include="Assets\Tutorial_Info\Scripts\Readme.cs" />
