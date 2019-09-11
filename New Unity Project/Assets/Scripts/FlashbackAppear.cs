@@ -6,25 +6,33 @@ using UnityEngine.UI;
 public class FlashbackAppear : MonoBehaviour
 {
     [SerializeField]
-    private Material[] flashbacks;
+    private Sprite flashbacks;
     [SerializeField]
-    private RawImage UIImage;
+    private Image UIImage;
+
+    [SerializeField]
+    private Animator anim;
+
+    SpriteRenderer rend;
+
     float timeLeft = 3f;
     float endFlashback = 5f;
 
     bool PartyFlashback = false;
     bool PhoneFlashback = false;
 
+    bool once = false;
     bool resetUIFlashback = false;
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("FlashbackPhone"))
+        if (/*other.CompareTag("FlashbackPhone")*/other.CompareTag("Player") && once == false)
         {
             Debug.Log("PhoneFlashback");
+            StartCoroutine(Fading());
             UIImage.enabled = true;
             PhoneFlashback = true;
-
+            once = true;
         }
 
         if (other.CompareTag("FlashbackParty"))
@@ -35,15 +43,13 @@ public class FlashbackAppear : MonoBehaviour
         }
     }
 
-    void OnTriggerExit(Collider other)
-    {
-        
-    }
-
     // Start is called before the first frame update
     void Start()
     {
-
+        rend = GetComponent<SpriteRenderer>();
+        Color c = rend.material.color;
+        c.a = 0f;
+        rend.material.color = c;
     }
 
     // Update is called once per frame
@@ -53,10 +59,11 @@ public class FlashbackAppear : MonoBehaviour
         {
             timeLeft -= Time.deltaTime;
         }
-        if (timeLeft < 0 && PhoneFlashback)
+        if (PhoneFlashback)
         {
             Debug.Log("UI Appearing Phone");
-            UIImage.material = flashbacks[1];
+            UIImage.sprite = flashbacks;
+
             endFlashback -= Time.deltaTime;
             if (endFlashback < 0)
             {
@@ -64,16 +71,16 @@ public class FlashbackAppear : MonoBehaviour
             }
         }
 
-        if (timeLeft < 0 && PartyFlashback)
-        {
-            Debug.Log("UI Appearing Party");
-            UIImage.material = flashbacks[2];
-            endFlashback -= Time.deltaTime;
-            if (endFlashback < 0)
-            {
-                ResetFlashback();
-            }
-        }
+        //if (/*timeLeft < 0 &&*/ PartyFlashback)
+        //{
+        //    Debug.Log("UI Appearing Party");
+        //    UIImage.sprite = flashbacks;
+        //    endFlashback -= Time.deltaTime;
+        //    if (endFlashback < 0)
+        //    {
+        //        ResetFlashback();
+        //    }
+        //}
     }
 
     void ResetFlashback()
@@ -85,6 +92,46 @@ public class FlashbackAppear : MonoBehaviour
         UIImage.enabled = false;
         timeLeft = 3f;
         endFlashback = 3f;
-        UIImage.material = flashbacks[0];
+        once = false;
+        //UIImage.sprite = flashbacks;
+        //FadeOut();
+    }
+
+    IEnumerator Fading()
+    {
+        anim.SetBool("Fade", true);
+        yield return new WaitUntil(() => UIImage.color.a == 1);
+    }
+
+    public void StartFading()
+    {
+        StartCoroutine(FadeIn());
+    }
+
+    public void FadingOut()
+    {
+        StartCoroutine(FadeOut());
+    }
+
+    public IEnumerator FadeIn()
+    {
+        for(float f = 0.05f; f <= 1; f += 0.5f)
+        {
+            Color c = rend.material.color;
+            c.a = f;
+            rend.material.color = c;
+            yield return new WaitForEndOfFrame();
+        }
+    }
+
+    public IEnumerator FadeOut()
+    {
+        for (float f = 1f; f >= -0.05f; f -= 0.5f)
+        {
+            Color c = rend.material.color;
+            c.a = f;
+            rend.material.color = c;
+            yield return new WaitForEndOfFrame();
+        }
     }
 }
