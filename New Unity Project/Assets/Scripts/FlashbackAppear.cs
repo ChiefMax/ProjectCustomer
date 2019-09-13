@@ -11,6 +11,9 @@ public class FlashbackAppear : MonoBehaviour
     private Image UIImage;
 
     [SerializeField]
+    public MonoBehaviour firstPersonController;
+
+    [SerializeField]
     private Animator anim;
 
     SpriteRenderer rend;
@@ -62,6 +65,7 @@ public class FlashbackAppear : MonoBehaviour
         if (PhoneFlashback)
         {
             Debug.Log("UI Appearing Phone");
+            firstPersonController.enabled = false;
             UIImage.sprite = flashbacks;
 
             endFlashback -= Time.deltaTime;
@@ -71,16 +75,16 @@ public class FlashbackAppear : MonoBehaviour
             }
         }
 
-        //if (/*timeLeft < 0 &&*/ PartyFlashback)
-        //{
-        //    Debug.Log("UI Appearing Party");
-        //    UIImage.sprite = flashbacks;
-        //    endFlashback -= Time.deltaTime;
-        //    if (endFlashback < 0)
-        //    {
-        //        ResetFlashback();
-        //    }
-        //}
+        if (PartyFlashback)
+        {
+            Debug.Log("UI Appearing Party");
+            UIImage.sprite = flashbacks;
+            endFlashback -= Time.deltaTime;
+            if (endFlashback < 0)
+            {
+                ResetFlashback();
+            }
+        }
     }
 
     void ResetFlashback()
@@ -93,8 +97,7 @@ public class FlashbackAppear : MonoBehaviour
         timeLeft = 3f;
         endFlashback = 3f;
         once = false;
-        //UIImage.sprite = flashbacks;
-        //FadeOut();
+        firstPersonController.enabled = true;
     }
 
     IEnumerator Fading()
