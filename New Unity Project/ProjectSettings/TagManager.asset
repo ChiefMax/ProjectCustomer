@@ -7,6 +7,7 @@ TagManager:
   - FlashbackPhone
   - FlashbackParty
   - Knife
+  - BottleFlashback
   layers:
   - Default
   - TransparentFX
