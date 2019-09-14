@@ -20,12 +20,14 @@ public class FlashbackAppear : MonoBehaviour
 
     float timeLeft = 3f;
     float endFlashback = 5f;
+    float fadeTimer = 2.5f;
 
     bool PartyFlashback = false;
     bool PhoneFlashback = false;
 
     bool once = false;
     bool resetUIFlashback = false;
+    bool fadeOut = false;
 
     void OnTriggerEnter(Collider other)
     {
@@ -36,13 +38,6 @@ public class FlashbackAppear : MonoBehaviour
             UIImage.enabled = true;
             PhoneFlashback = true;
             once = true;
-        }
-
-        if (other.CompareTag("FlashbackParty"))
-        {
-            Debug.Log("PartyFlashback");
-            UIImage.enabled = true;
-            PartyFlashback = true;
         }
     }
 
@@ -61,6 +56,11 @@ public class FlashbackAppear : MonoBehaviour
         if (PhoneFlashback || PartyFlashback)
         {
             timeLeft -= Time.deltaTime;
+            fadeTimer -= Time.deltaTime;
+            if (fadeTimer < 0)
+            {
+                fadeOut = true;
+            }
         }
         if (PhoneFlashback)
         {
@@ -106,35 +106,35 @@ public class FlashbackAppear : MonoBehaviour
         yield return new WaitUntil(() => UIImage.color.a == 1);
     }
 
-    public void StartFading()
-    {
-        StartCoroutine(FadeIn());
-    }
+    //public void StartFading()
+    //{
+    //    StartCoroutine(FadeIn());
+    //}
 
-    public void FadingOut()
-    {
-        StartCoroutine(FadeOut());
-    }
+    //public void FadingOut()
+    //{
+    //    StartCoroutine(FadeOut());
+    //}
 
-    public IEnumerator FadeIn()
-    {
-        for(float f = 0.05f; f <= 1; f += 0.5f)
-        {
-            Color c = rend.material.color;
-            c.a = f;
-            rend.material.color = c;
-            yield return new WaitForEndOfFrame();
-        }
-    }
+    //public IEnumerator FadeIn()
+    //{
+    //    for(float f = 0.05f; f <= 1; f += 0.5f)
+    //    {
+    //        Color c = rend.material.color;
+    //        c.a = f;
+    //        rend.material.color = c;
+    //        yield return new WaitForEndOfFrame();
+    //    }
+    //}
 
-    public IEnumerator FadeOut()
-    {
-        for (float f = 1f; f >= -0.05f; f -= 0.5f)
-        {
-            Color c = rend.material.color;
-            c.a = f;
-            rend.material.color = c;
-            yield return new WaitForEndOfFrame();
-        }
-    }
+    //public IEnumerator FadeOut()
+    //{
+    //    for (float f = 1f; f >= -0.05f; f -= 0.5f)
+    //    {
+    //        Color c = rend.material.color;
+    //        c.a = f;
+    //        rend.material.color = c;
+    //        yield return new WaitForEndOfFrame();
+    //    }
+    //}
 }
