@@ -363,6 +363,7 @@
     <Compile Include="Assets\Scripts\DialogueTrigger.cs" />
     <Compile Include="Assets\Scripts\FlashbackAppear.cs" />
     <Compile Include="Assets\Scripts\FlashbackFadeHandler.cs" />
+    <Compile Include="Assets\Scripts\FlashbackHandler.cs" />
     <Compile Include="Assets\Scripts\KnifePickUp.cs" />
     <Compile Include="Assets\Scripts\MainMenuScript.cs" />
     <Compile Include="Assets\Scripts\PickUpObject.cs" />
