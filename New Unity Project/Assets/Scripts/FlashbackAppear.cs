@@ -16,16 +16,21 @@ public class FlashbackAppear : MonoBehaviour
     [SerializeField]
     private Animator anim;
 
+    public AudioClip FlashbackSound;
+
+    public AudioSource source;
+
     SpriteRenderer rend;
 
     float timeLeft = 3f;
-    float endFlashback = 5f;
-    float fadeTimer = 2.5f;
+    float endFlashback = 3f;
+    //float fadeTimer = 2.5f;
 
     bool PartyFlashback = false;
     bool PhoneFlashback = false;
 
     bool once = false;
+    bool onceSound = false;
     bool resetUIFlashback = false;
     bool fadeOut = false;
 
@@ -38,6 +43,7 @@ public class FlashbackAppear : MonoBehaviour
             UIImage.enabled = true;
             PhoneFlashback = true;
             once = true;
+            onceSound = true;
         }
     }
 
@@ -48,6 +54,8 @@ public class FlashbackAppear : MonoBehaviour
         Color c = rend.material.color;
         c.a = 0f;
         rend.material.color = c;
+
+        source.clip = FlashbackSound;
     }
 
     // Update is called once per frame
@@ -56,11 +64,6 @@ public class FlashbackAppear : MonoBehaviour
         if (PhoneFlashback || PartyFlashback)
         {
             timeLeft -= Time.deltaTime;
-            fadeTimer -= Time.deltaTime;
-            if (fadeTimer < 0)
-            {
-                fadeOut = true;
-            }
         }
         if (PhoneFlashback)
         {
@@ -68,6 +71,10 @@ public class FlashbackAppear : MonoBehaviour
             firstPersonController.enabled = false;
             UIImage.sprite = flashbacks;
 
+            if (onceSound) {
+                source.Play();
+                onceSound = false;
+            }
             endFlashback -= Time.deltaTime;
             if (endFlashback < 0)
             {
@@ -98,6 +105,7 @@ public class FlashbackAppear : MonoBehaviour
         endFlashback = 3f;
         once = false;
         firstPersonController.enabled = true;
+        source.Stop();
     }
 
     IEnumerator Fading()
