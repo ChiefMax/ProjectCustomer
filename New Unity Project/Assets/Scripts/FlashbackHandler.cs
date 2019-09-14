@@ -95,6 +95,7 @@ public class FlashbackHandler : MonoBehaviour
             firstPersonController.enabled = false;
             UIImage.enabled = true;
             UIImage.sprite = flashbacks[0];
+            StartCoroutine(Fading());
 
             if (onceSound)
             {
@@ -114,6 +115,7 @@ public class FlashbackHandler : MonoBehaviour
             firstPersonController.enabled = false;
             UIImage.enabled = true;
             UIImage.sprite = flashbacks[1];
+            StartCoroutine(Fading());
 
             if (onceSound)
             {
@@ -133,6 +135,7 @@ public class FlashbackHandler : MonoBehaviour
             firstPersonController.enabled = false;
             UIImage.enabled = true;
             UIImage.sprite = flashbacks[2];
+            StartCoroutine(Fading());
 
             if (onceSound)
             {
@@ -153,6 +156,7 @@ public class FlashbackHandler : MonoBehaviour
             firstPersonController.enabled = false;
             UIImage.enabled = true;
             UIImage.sprite = flashbacks[3];
+            StartCoroutine(Fading());
 
             if (onceSound)
             {
@@ -172,6 +176,7 @@ public class FlashbackHandler : MonoBehaviour
             firstPersonController.enabled = false;
             UIImage.enabled = true;
             UIImage.sprite = flashbacks[4];
+            StartCoroutine(Fading());
 
             if (onceSound)
             {
@@ -191,6 +196,7 @@ public class FlashbackHandler : MonoBehaviour
             firstPersonController.enabled = false;
             UIImage.enabled = true;
             UIImage.sprite = flashbacks[5];
+            StartCoroutine(Fading());
 
             if (onceSound)
             {
