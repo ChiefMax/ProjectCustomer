@@ -16,16 +16,23 @@ public class FlashbackAppear : MonoBehaviour
     [SerializeField]
     private Animator anim;
 
+    public AudioClip FlashbackSound;
+
+    public AudioSource source;
+
     SpriteRenderer rend;
 
     float timeLeft = 3f;
-    float endFlashback = 5f;
+    float endFlashback = 3f;
+    //float fadeTimer = 2.5f;
 
     bool PartyFlashback = false;
     bool PhoneFlashback = false;
 
     bool once = false;
+    bool onceSound = false;
     bool resetUIFlashback = false;
+    bool fadeOut = false;
 
     void OnTriggerEnter(Collider other)
     {
@@ -36,13 +43,7 @@ public class FlashbackAppear : MonoBehaviour
             UIImage.enabled = true;
             PhoneFlashback = true;
             once = true;
-        }
-
-        if (other.CompareTag("FlashbackParty"))
-        {
-            Debug.Log("PartyFlashback");
-            UIImage.enabled = true;
-            PartyFlashback = true;
+            onceSound = true;
         }
     }
 
@@ -53,6 +54,8 @@ public class FlashbackAppear : MonoBehaviour
         Color c = rend.material.color;
         c.a = 0f;
         rend.material.color = c;
+
+        source.clip = FlashbackSound;
     }
 
     // Update is called once per frame
@@ -68,6 +71,10 @@ public class FlashbackAppear : MonoBehaviour
             firstPersonController.enabled = false;
             UIImage.sprite = flashbacks;
 
+            if (onceSound) {
+                source.Play();
+                onceSound = false;
+            }
             endFlashback -= Time.deltaTime;
             if (endFlashback < 0)
             {
@@ -98,6 +105,7 @@ public class FlashbackAppear : MonoBehaviour
         endFlashback = 3f;
         once = false;
         firstPersonController.enabled = true;
+        source.Stop();
     }
 
     IEnumerator Fading()
@@ -106,35 +114,35 @@ public class FlashbackAppear : MonoBehaviour
         yield return new WaitUntil(() => UIImage.color.a == 1);
     }
 
-    public void StartFading()
-    {
-        StartCoroutine(FadeIn());
-    }
+    //public void StartFading()
+    //{
+    //    StartCoroutine(FadeIn());
+    //}
 
-    public void FadingOut()
-    {
-        StartCoroutine(FadeOut());
-    }
+    //public void FadingOut()
+    //{
+    //    StartCoroutine(FadeOut());
+    //}
 
-    public IEnumerator FadeIn()
-    {
-        for(float f = 0.05f; f <= 1; f += 0.5f)
-        {
-            Color c = rend.material.color;
-            c.a = f;
-            rend.material.color = c;
-            yield return new WaitForEndOfFrame();
-        }
-    }
+    //public IEnumerator FadeIn()
+    //{
+    //    for(float f = 0.05f; f <= 1; f += 0.5f)
+    //    {
+    //        Color c = rend.material.color;
+    //        c.a = f;
+    //        rend.material.color = c;
+    //        yield return new WaitForEndOfFrame();
+    //    }
+    //}
 
-    public IEnumerator FadeOut()
-    {
-        for (float f = 1f; f >= -0.05f; f -= 0.5f)
-        {
-            Color c = rend.material.color;
-            c.a = f;
-            rend.material.color = c;
-            yield return new WaitForEndOfFrame();
-        }
-    }
+    //public IEnumerator FadeOut()
+    //{
+    //    for (float f = 1f; f >= -0.05f; f -= 0.5f)
+    //    {
+    //        Color c = rend.material.color;
+    //        c.a = f;
+    //        rend.material.color = c;
+    //        yield return new WaitForEndOfFrame();
+    //    }
+    //}
 }
