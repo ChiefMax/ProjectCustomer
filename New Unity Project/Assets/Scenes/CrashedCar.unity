@@ -1906,6 +1906,8 @@ GameObject:
   - component: {fileID: 251377093}
   - component: {fileID: 251377092}
   - component: {fileID: 251377091}
+  - component: {fileID: 251377094}
+  - component: {fileID: 251377095}
   m_Layer: 0
   m_Name: Knife
   m_TagString: Untagged
@@ -1986,6 +1988,31 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 251377089}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!122 &251377094
+Halo:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251377089}
+  m_Enabled: 0
+  m_Color:
+    serializedVersion: 2
+    rgba: 727868051
+  m_Size: 0.3
+--- !u!114 &251377095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251377089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c8f563c3d6623b4db0d217b665c88fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halo: {fileID: 251377094}
 --- !u!1 &251505963
 GameObject:
   m_ObjectHideFlags: 0
@@ -12017,6 +12044,8 @@ GameObject:
   - component: {fileID: 2136515628}
   - component: {fileID: 2136515627}
   - component: {fileID: 2136515626}
+  - component: {fileID: 2136515631}
+  - component: {fileID: 2136515630}
   m_Layer: 0
   m_Name: BackseatPerson2
   m_TagString: Untagged
@@ -12098,6 +12127,31 @@ Transform:
   m_Father: {fileID: 1823409241}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2136515630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136515625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c8f563c3d6623b4db0d217b665c88fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halo: {fileID: 2136515631}
+--- !u!122 &2136515631
+Halo:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136515625}
+  m_Enabled: 0
+  m_Color:
+    serializedVersion: 2
+    rgba: 727868051
+  m_Size: 0.75
 --- !u!4 &2138555528 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2269108577433881189, guid: 5bc5015ecb020884c9e237bfed71957d,
