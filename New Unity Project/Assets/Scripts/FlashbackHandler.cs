@@ -71,7 +71,7 @@ public class FlashbackHandler : MonoBehaviour
                 //BoxCollider bc = hit.collider as BoxCollider;
                 if (hit.transform.gameObject == knife)
                 {
-                    Debug.Log("KNIFE!");
+                    //Debug.Log("KNIFE!");
                     //Destroy(knife.gameObject);
                     //knife.gameObject.SetActive(false);
                     KnifeFlashback = true;
@@ -80,7 +80,7 @@ public class FlashbackHandler : MonoBehaviour
 
                 if (hit.transform.gameObject == person)
                 {
-                    Debug.Log("PERSON!");
+                    //Debug.Log("PERSON!");
                     //Destroy(knife.gameObject);
                     //knife.gameObject.SetActive(false);
                     PersonFlashback = true;
@@ -91,7 +91,7 @@ public class FlashbackHandler : MonoBehaviour
 
         if (PhoneFlashback)
         {
-            Debug.Log("Phone flashback");
+            //Debug.Log("Phone flashback");
             firstPersonController.enabled = false;
             UIImage.enabled = true;
             UIImage.sprite = flashbacks[0];
@@ -111,7 +111,7 @@ public class FlashbackHandler : MonoBehaviour
 
         if (PartyFlashback)
         {
-            Debug.Log("Party flashback");
+            //Debug.Log("Party flashback");
             firstPersonController.enabled = false;
             UIImage.enabled = true;
             UIImage.sprite = flashbacks[1];
@@ -131,7 +131,7 @@ public class FlashbackHandler : MonoBehaviour
 
         if (BottleFlashback)
         {
-            Debug.Log("Bottle flashback");
+            //Debug.Log("Bottle flashback");
             firstPersonController.enabled = false;
             UIImage.enabled = true;
             UIImage.sprite = flashbacks[2];
@@ -152,7 +152,7 @@ public class FlashbackHandler : MonoBehaviour
 
         if (BeerCanFlashback)
         {
-            Debug.Log("Beer can flashback");
+            //Debug.Log("Beer can flashback");
             firstPersonController.enabled = false;
             UIImage.enabled = true;
             UIImage.sprite = flashbacks[3];
@@ -172,7 +172,7 @@ public class FlashbackHandler : MonoBehaviour
 
         if (KnifeFlashback)
         {
-            Debug.Log("Knife flashback");
+            //Debug.Log("Knife flashback");
             firstPersonController.enabled = false;
             UIImage.enabled = true;
             UIImage.sprite = flashbacks[4];
@@ -192,7 +192,7 @@ public class FlashbackHandler : MonoBehaviour
 
         if (PersonFlashback)
         {
-            Debug.Log("Person flashback");
+            //Debug.Log("Person flashback");
             firstPersonController.enabled = false;
             UIImage.enabled = true;
             UIImage.sprite = flashbacks[5];

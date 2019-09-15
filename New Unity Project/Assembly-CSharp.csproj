@@ -355,12 +355,14 @@
     <Compile Include="Assets\SampleScenes\Scripts\ParticleSceneControls.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
+    <Compile Include="Assets\Scripts\CallHandler.cs" />
     <Compile Include="Assets\Scripts\ClickFlashbackAppear.cs" />
     <Compile Include="Assets\Scripts\ClosingScriptHandler.cs" />
     <Compile Include="Assets\Scripts\CurserScript.cs" />
     <Compile Include="Assets\Scripts\Dialogue.cs" />
     <Compile Include="Assets\Scripts\DialogueManager.cs" />
     <Compile Include="Assets\Scripts\DialogueTrigger.cs" />
+    <Compile Include="Assets\Scripts\EndGameHandler.cs" />
     <Compile Include="Assets\Scripts\FlashbackAppear.cs" />
     <Compile Include="Assets\Scripts\FlashbackFadeHandler.cs" />
     <Compile Include="Assets\Scripts\FlashbackHandler.cs" />
