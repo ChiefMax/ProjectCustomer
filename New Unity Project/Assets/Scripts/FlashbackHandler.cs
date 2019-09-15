@@ -15,6 +15,8 @@ public class FlashbackHandler : MonoBehaviour
 
     [SerializeField]
     private GameObject person;
+    [SerializeField]
+    private GameObject StuckInCar;
 
     [SerializeField]
     public MonoBehaviour firstPersonController;
@@ -76,6 +78,8 @@ public class FlashbackHandler : MonoBehaviour
                     //knife.gameObject.SetActive(false);
                     KnifeFlashback = true;
                     onceSound = true;
+                    knife.SetActive(false);
+                    StuckInCar.SetActive(false);
                 }
 
                 if (hit.transform.gameObject == person)
