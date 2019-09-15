@@ -8,47 +8,27 @@ public class PickUpObject : MonoBehaviour
     [SerializeField]
     private Image UIImage;
 
+    [SerializeField]
+    private Image FlashbackImage;
+
     bool BrokenPhone = true;
 
     // Update is called once per frame
     void Update()
     {
-        //if (Input.GetMouseButton(0)) {
-        //    RaycastHit hit;
-        //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        //    if (Physics.Raycast(ray, out hit))
-        //    {
-        //        BoxCollider bc = hit.collider as BoxCollider;
-        //        if (bc != null)
-        //        {
-        //            //Destroy(phoneBroken.gameObject);
-        //            phoneBroken.SetActive(false);
-        //            brokenPhone = true;
-        //        }
-        //    }
-        //}
-
-        //if (Input.GetMouseButton(0))
-        //{
-        //    RaycastHit hit;
-        //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        //    if (Physics.Raycast(ray, out hit))
-        //    {
-        //        BoxCollider bc = hit.collider as BoxCollider;
-        //        if (bc != null && brokenPhone)
-        //        {
-        //            //Destroy(phoneWorking.gameObject);
-        //            phoneWorking.SetActive(false);
-        //        }
-        //    }
-        //}
+        if (FlashbackImage == enabled)
+        {
+            //UIImage.enabled = false;
+        }
+        else
+        {
+            //UIImage.enabled = true;
+        }
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("FlashbackPhone"))
         {
             this.gameObject.SetActive(false);
             UIImage.enabled = true;
