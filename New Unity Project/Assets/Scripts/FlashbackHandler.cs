@@ -16,7 +16,17 @@ public class FlashbackHandler : MonoBehaviour
     [SerializeField]
     private GameObject person;
     [SerializeField]
+    private GameObject party;
+    [SerializeField]
+    private GameObject bottle;
+    //[SerializeField]
+    //private GameObject beerCan;
+    [SerializeField]
     private GameObject StuckInCar;
+    [SerializeField]
+    private GameObject BrokenPhone;
+    [SerializeField]
+    private GameObject WorkingPhone;
 
     [SerializeField]
     public MonoBehaviour firstPersonController;
@@ -43,6 +53,7 @@ public class FlashbackHandler : MonoBehaviour
     bool BeerCanFlashback = false;
     bool KnifeFlashback = false;
     bool PersonFlashback = false;
+    bool workingPhoneEnd = false;
 
     // Start is called before the first frame update
     void Start()
@@ -70,12 +81,8 @@ public class FlashbackHandler : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                //BoxCollider bc = hit.collider as BoxCollider;
                 if (hit.transform.gameObject == knife)
                 {
-                    //Debug.Log("KNIFE!");
-                    //Destroy(knife.gameObject);
-                    //knife.gameObject.SetActive(false);
                     KnifeFlashback = true;
                     onceSound = true;
                     knife.SetActive(false);
@@ -84,10 +91,39 @@ public class FlashbackHandler : MonoBehaviour
 
                 if (hit.transform.gameObject == person)
                 {
-                    //Debug.Log("PERSON!");
-                    //Destroy(knife.gameObject);
-                    //knife.gameObject.SetActive(false);
                     PersonFlashback = true;
+                    onceSound = true;
+                }
+
+                if (hit.transform.gameObject == party)
+                {
+                    Debug.Log("Bottle");
+                    PartyFlashback = true;
+                    onceSound = true;
+                }
+
+                //if (hit.transform.gameObject == beerCan)
+                //{
+                //    BeerCanFlashback = true;
+                //    onceSound = true;
+                //}
+
+                if (hit.transform.gameObject == bottle)
+                {
+                    Debug.Log("Bottle");
+                    BottleFlashback = true;
+                    onceSound = true;
+                }
+
+                if (hit.transform.gameObject == BrokenPhone)
+                {
+                    PhoneFlashback = true;
+                    onceSound = true;
+                }
+
+                if (hit.transform.gameObject == WorkingPhone)
+                {
+                    workingPhoneEnd = true;
                     onceSound = true;
                 }
             }
@@ -216,33 +252,33 @@ public class FlashbackHandler : MonoBehaviour
 
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("FlashbackPhone"))
-        {
-            UIImage.enabled = true;
-            PhoneFlashback = true;
-            other.enabled = false;
-            onceSound = true;
-        }
+    //void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("FlashbackPhone"))
+    //    {
+    //        UIImage.enabled = true;
+    //        PhoneFlashback = true;
+    //        other.enabled = false;
+    //        onceSound = true;
+    //    }
 
-        //Sneaky actually the beer cans.
-        if (other.CompareTag("FlashbackParty"))
-        {
-            PartyFlashback = true;
-            UIImage.enabled = true;
-            other.enabled = false;
-            onceSound = true;
-        }
+    //    //Sneaky actually the beer cans.
+    //    if (other.CompareTag("FlashbackParty"))
+    //    {
+    //        PartyFlashback = true;
+    //        UIImage.enabled = true;
+    //        other.enabled = false;
+    //        onceSound = true;
+    //    }
 
-        if (other.CompareTag("BottleFlashback"))
-        {
-            BottleFlashback = true;
-            UIImage.enabled = true;
-            other.enabled = false;
-            onceSound = true;
-        }
-    }
+    //    if (other.CompareTag("BottleFlashback"))
+    //    {
+    //        BottleFlashback = true;
+    //        UIImage.enabled = true;
+    //        other.enabled = false;
+    //        onceSound = true;
+    //    }
+    //}
 
     IEnumerator Fading()
     {
