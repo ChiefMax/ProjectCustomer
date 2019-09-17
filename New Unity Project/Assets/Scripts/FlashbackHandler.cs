@@ -11,6 +11,12 @@ public class FlashbackHandler : MonoBehaviour
     private Image UIImage;
 
     [SerializeField]
+    private Image PhoneImage;
+
+    [SerializeField]
+    private Sprite[] phones;
+
+    [SerializeField]
     private GameObject knife;
 
     [SerializeField]
@@ -54,6 +60,8 @@ public class FlashbackHandler : MonoBehaviour
     bool KnifeFlashback = false;
     bool PersonFlashback = false;
     bool workingPhoneEnd = false;
+    bool BrokenPhoneBool = false;
+    bool WorkingPhoneBool = false;
 
     // Start is called before the first frame update
     void Start()
@@ -117,6 +125,9 @@ public class FlashbackHandler : MonoBehaviour
 
                 if (hit.transform.gameObject == BrokenPhone)
                 {
+                    //BrokenPhoneBool = true;
+                    Debug.Log("Broken phone test");
+                    BrokenPhone.SetActive(false);
                     PhoneFlashback = true;
                     onceSound = true;
                 }
@@ -125,6 +136,9 @@ public class FlashbackHandler : MonoBehaviour
                 {
                     workingPhoneEnd = true;
                     onceSound = true;
+                    WorkingPhone.SetActive(false);
+                    BrokenPhoneBool = false;
+                    //WorkingPhoneBool = true;
                 }
             }
         }
@@ -135,6 +149,8 @@ public class FlashbackHandler : MonoBehaviour
             firstPersonController.enabled = false;
             UIImage.enabled = true;
             UIImage.sprite = flashbacks[0];
+            PhoneImage.enabled = true;
+            PhoneImage.sprite = phones[0];
             StartCoroutine(Fading());
 
             if (onceSound)
@@ -248,6 +264,12 @@ public class FlashbackHandler : MonoBehaviour
             {
                 ResetFlashback();
             }
+        }
+
+        if (workingPhoneEnd)
+        {
+            PhoneImage.enabled = true;
+            PhoneImage.sprite = phones[1];
         }
 
     }
