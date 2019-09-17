@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 4520110}
   - component: {fileID: 4520109}
   m_Layer: 0
-  m_Name: PhoneBroken (1)
+  m_Name: PhoneWorking
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -155,11 +155,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4520107}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.141, y: -0.2524, z: -28.36}
+  m_LocalPosition: {x: -0.199, y: -0.017969906, z: 0.28499985}
   m_LocalScale: {x: 0.1100841, y: 0.01, z: 0.1863495}
   m_Children: []
-  m_Father: {fileID: 1051219064}
-  m_RootOrder: 2
+  m_Father: {fileID: 1573017484}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!122 &4520109
 Halo:
@@ -194,7 +194,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4520107}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -756,8 +756,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1811204872}
-  - {fileID: 1901807959}
   - {fileID: 251505964}
+  - {fileID: 1901807959}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1956,7 +1956,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 105316253}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -5230,7 +5230,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1573017484}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &880531621
 AudioSource:
@@ -5795,6 +5795,7 @@ GameObject:
   - component: {fileID: 947586300}
   - component: {fileID: 940023064}
   - component: {fileID: 947586297}
+  - component: {fileID: 947586301}
   m_Layer: 0
   m_Name: FPSController
   m_TagString: Player
@@ -5905,6 +5906,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2d1b1a827c2215242b848631de501ab4, type: 3}
   - {fileID: 21300000, guid: 243cd992bdc5c6b4fab813a4172e7102, type: 3}
   UIImage: {fileID: 1901807960}
+  PhoneImage: {fileID: 251505965}
+  phones:
+  - {fileID: 21300000, guid: ebf3dbbad39c62041b4ba3cedf96146e, type: 3}
+  - {fileID: 21300000, guid: a87aedf777e58e04fbd3cdcfd1c30f09, type: 3}
   knife: {fileID: 251377089}
   person: {fileID: 2136515625}
   party: {fileID: 605751830}
@@ -5916,6 +5921,24 @@ MonoBehaviour:
   anim: {fileID: 1901807962}
   FlashbackSound: {fileID: 8300000, guid: b718da6f8df90ce43b7f64b081bb90f7, type: 3}
   source: {fileID: 358979974}
+--- !u!114 &947586301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 947586296}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52927eb4fd8bf2e44a99ed5e008bcac4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PhoneImage: {fileID: 251505965}
+  phones:
+  - {fileID: 21300000, guid: ebf3dbbad39c62041b4ba3cedf96146e, type: 3}
+  - {fileID: 21300000, guid: a87aedf777e58e04fbd3cdcfd1c30f09, type: 3}
+  phoneBroken: {fileID: 1522992413}
+  workingPhone: {fileID: 1573017480}
 --- !u!4 &947689688
 Transform:
   m_ObjectHideFlags: 0
@@ -6663,7 +6686,6 @@ Transform:
   m_Children:
   - {fileID: 37637079}
   - {fileID: 775206981}
-  - {fileID: 4520108}
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9185,8 +9207,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52927eb4fd8bf2e44a99ed5e008bcac4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIImage: {fileID: 251505965}
-  FlashbackImage: {fileID: 0}
+  PhoneImage: {fileID: 0}
+  phones: []
+  phoneBroken: {fileID: 0}
+  workingPhone: {fileID: 0}
 --- !u!4 &1530017999 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2269108577433881189, guid: 5bc5015ecb020884c9e237bfed71957d,
@@ -9553,6 +9577,7 @@ Transform:
   m_LocalPosition: {x: 1.86, y: 0.573, z: -30.754}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4520108}
   - {fileID: 1842406296}
   - {fileID: 880531620}
   m_Father: {fileID: 0}
@@ -10549,7 +10574,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 15710d7089c04194eb146488f12d19e8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 87ca45bf05822eb40944e5b29abd7f36, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10788,7 +10813,7 @@ RectTransform:
   m_Children:
   - {fileID: 519747216}
   m_Father: {fileID: 1573017484}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -10904,7 +10929,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 105316253}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -11238,7 +11263,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1922143351}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
