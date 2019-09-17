@@ -7,29 +7,30 @@ public class SoundDialogueHandler : MonoBehaviour
     public AudioClip[] DialogueSound;
     public AudioSource source;
 
-    bool StillDialogueLeft = false;
-    int counter = 0;
+    //bool StillDialogueLeft = false;
+    //bool canPlayNextLine = false;
+    //bool AllDone = false;
+    //float Timer = 0f;
+    //int counter = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        source.clip = DialogueSound[0];
+        StartCoroutine(playEngineSound(DialogueSound));
+    }
+
+    IEnumerator playEngineSound(AudioClip[] playThis)
+    {
+        for (int i = 0; i < DialogueSound.Length; i++)
+        {
+            source.PlayOneShot(playThis[i]);
+            yield return new WaitForSeconds(playThis[i].length);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!source.isPlaying && !StillDialogueLeft)
-        {
-            foreach (var element in DialogueSound)
-            {
-                counter++;
-                source.PlayOneShot(element);
-                if (counter >= DialogueSound.Length)
-                {
-                    StillDialogueLeft = true;
-                }                
-            }
-        }
+        
     }
 }

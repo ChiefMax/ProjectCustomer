@@ -35,6 +35,8 @@ public class FlashbackHandler : MonoBehaviour
     private GameObject WorkingPhone;
     [SerializeField]
     private GameObject WorkingPhoneObject;
+    [SerializeField]
+    private GameObject KnifeObject;
 
     [SerializeField]
     public MonoBehaviour firstPersonController;
@@ -96,6 +98,7 @@ public class FlashbackHandler : MonoBehaviour
                     KnifeFlashback = true;
                     onceSound = true;
                     knife.SetActive(false);
+                    KnifeObject.SetActive(false);
                     StuckInCar.SetActive(false);
                 }
 

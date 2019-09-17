@@ -48,7 +48,7 @@ public class CallHandler : MonoBehaviour
         if (timeLeft < 0)
         {
             Debug.Log("NEEEEEEEEEEEEXT!");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            SceneManager.LoadScene("TitleScreen");
         }
     }
 
