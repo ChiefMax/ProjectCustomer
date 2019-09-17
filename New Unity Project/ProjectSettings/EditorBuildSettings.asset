@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TitleScreen.unity
     guid: d2a133a5ed0de8d44aa5675944e2a686
+  - enabled: 1
+    path: Assets/Scenes/NewCrashedCar.unity
+    guid: da64203e2c9f0ef4b98e8a4b71db9179
   m_configObjects: {}
