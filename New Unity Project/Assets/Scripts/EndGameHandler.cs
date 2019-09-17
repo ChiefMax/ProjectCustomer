@@ -11,6 +11,8 @@ public class EndGameHandler : MonoBehaviour
     private GameObject person;
     [SerializeField]
     private Animator anim;
+    [SerializeField]
+    private Animator anim2;
 
     bool PartyEnd = false;
     bool PhoneEnd = false;
@@ -53,6 +55,7 @@ public class EndGameHandler : MonoBehaviour
             Debug.Log("End game starting.");
             //anim.SetBool("Flicker", true);
             anim.enabled = true;
+            anim2.enabled = true;
         }
     }
 

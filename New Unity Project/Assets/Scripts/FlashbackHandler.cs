@@ -33,6 +33,8 @@ public class FlashbackHandler : MonoBehaviour
     private GameObject BrokenPhone;
     [SerializeField]
     private GameObject WorkingPhone;
+    [SerializeField]
+    private GameObject WorkingPhoneObject;
 
     [SerializeField]
     public MonoBehaviour firstPersonController;
@@ -126,7 +128,7 @@ public class FlashbackHandler : MonoBehaviour
                 if (hit.transform.gameObject == BrokenPhone)
                 {
                     //BrokenPhoneBool = true;
-                    Debug.Log("Broken phone test");
+                    print("working phone.");
                     BrokenPhone.SetActive(false);
                     PhoneFlashback = true;
                     onceSound = true;
@@ -134,9 +136,10 @@ public class FlashbackHandler : MonoBehaviour
 
                 if (hit.transform.gameObject == WorkingPhone)
                 {
+                    print("working phone.");
                     workingPhoneEnd = true;
                     onceSound = true;
-                    WorkingPhone.SetActive(false);
+                    WorkingPhoneObject.SetActive(false);
                     BrokenPhoneBool = false;
                     //WorkingPhoneBool = true;
                 }
