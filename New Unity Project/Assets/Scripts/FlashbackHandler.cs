@@ -52,6 +52,7 @@ public class FlashbackHandler : MonoBehaviour
 
     float timeLeft = 3f;
     float endFlashback = 5f;
+    float wait = 5f;
 
     bool once = false;
     bool onceSound = false;
@@ -312,6 +313,7 @@ public class FlashbackHandler : MonoBehaviour
     {
         anim.SetBool("Fade", true);
         yield return new WaitUntil(() => UIImage.color.a == 1);
+        anim.SetBool("Fade", false);
     }
 
     void ResetFlashback()
@@ -330,5 +332,6 @@ public class FlashbackHandler : MonoBehaviour
         onceSound = false;
         firstPersonController.enabled = true;
         source.Stop();
+        anim.SetBool("Fade", false);
     }
 }
