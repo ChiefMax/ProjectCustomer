@@ -20,7 +20,7 @@ public class PersonStartVO : MonoBehaviour
 
     void OnMouseOver()
     {
-        print("Over object");
+        //print("Over object");
         VOstart.enabled = true;
     }
 
