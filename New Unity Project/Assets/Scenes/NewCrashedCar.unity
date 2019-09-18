@@ -15614,6 +15614,11 @@ PrefabInstance:
       propertyPath: KnifeObject
       value: 
       objectReference: {fileID: 1483983451}
+    - target: {fileID: 8329285957558191096, guid: ade5119fcfd84ad4fa38dc7078709983,
+        type: 3}
+      propertyPath: FlashbackSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 4a99b09e73cd40e468b51c3be73869d1, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ade5119fcfd84ad4fa38dc7078709983, type: 3}
 --- !u!1001 &1176395447
@@ -30152,7 +30157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textHelp: {fileID: 3574838867203412028}
-  DialUpSound: {fileID: 8300000, guid: feded848d9a5fde478fb277f1c967e8f, type: 3}
+  DialUpSound: {fileID: 8300000, guid: 7eecc0ce53289ea429b7c97cc425b404, type: 3}
   source: {fileID: 3574838866557419016}
 --- !u!4 &3574838866178453793
 Transform:
