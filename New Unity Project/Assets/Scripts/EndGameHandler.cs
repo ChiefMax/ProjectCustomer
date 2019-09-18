@@ -40,17 +40,19 @@ public class EndGameHandler : MonoBehaviour
                 //BoxCollider bc = hit.collider as BoxCollider;
                 if (hit.transform.gameObject == knife)
                 {
+                    print("knife end.");
                     KnifeEnd = true;
                 }
 
                 if (hit.transform.gameObject == person)
                 {
+                    print("person end.");
                     PersonEnd = true;
                 }
             }
         }
 
-        if (PartyEnd && PhoneEnd && BottleEnd && /*BeerEnd &&*/ KnifeEnd && PersonEnd || Input.GetKeyDown(KeyCode.G))
+        if (PartyEnd && PhoneEnd && BottleEnd && /*BeerEnd &&*/ /*KnifeEnd &&*/ PersonEnd || Input.GetKeyDown(KeyCode.G))
         {
             Debug.Log("End game starting.");
             //anim.SetBool("Flicker", true);
@@ -63,17 +65,20 @@ public class EndGameHandler : MonoBehaviour
     {
         if (other.CompareTag("FlashbackPhone"))
         {
+            print("Phone end.");
             PhoneEnd = true;
         }
 
         //Sneaky actually the beer cans.
         if (other.CompareTag("FlashbackParty"))
         {
+            print("Party end.");
             PartyEnd = true;
         }
 
         if (other.CompareTag("BottleFlashback"))
         {
+            print("Bottle end.");
             BottleEnd = true;
         }
     }
