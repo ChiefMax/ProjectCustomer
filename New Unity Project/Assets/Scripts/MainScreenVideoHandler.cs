@@ -17,7 +17,7 @@ public class MainScreenVideoHandler : MonoBehaviour
     [SerializeField]
     public GameObject mainMenuObject;
 
-    float timeVideo = 5f;
+    float timeVideo = 29f;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +44,11 @@ public class MainScreenVideoHandler : MonoBehaviour
         {
             Debug.Log(timeVideo);
             timeVideo -= Time.deltaTime;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            timeVideo = 0;
         }
 
         if (timeVideo <= 0)
