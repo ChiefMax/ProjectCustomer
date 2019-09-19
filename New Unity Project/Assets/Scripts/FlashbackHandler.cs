@@ -51,7 +51,7 @@ public class FlashbackHandler : MonoBehaviour
     SpriteRenderer rend;
 
     float timeLeft = 3f;
-    float endFlashback = 5f;
+    float endFlashback = 4f;
     float wait = 5f;
 
     bool once = false;
@@ -156,6 +156,7 @@ public class FlashbackHandler : MonoBehaviour
             firstPersonController.enabled = false;
             UIImage.enabled = true;
             UIImage.sprite = flashbacks[0];
+            anim.enabled = true;
             PhoneImage.enabled = true;
             PhoneImage.sprite = phones[0];
             StartCoroutine(Fading());
@@ -178,6 +179,7 @@ public class FlashbackHandler : MonoBehaviour
             firstPersonController.enabled = false;
             UIImage.enabled = true;
             UIImage.sprite = flashbacks[1];
+            anim.enabled = true;
             StartCoroutine(Fading());
 
             if (onceSound)
@@ -198,6 +200,7 @@ public class FlashbackHandler : MonoBehaviour
             firstPersonController.enabled = false;
             UIImage.enabled = true;
             UIImage.sprite = flashbacks[2];
+            anim.enabled = true;
             StartCoroutine(Fading());
 
             if (onceSound)
@@ -219,6 +222,7 @@ public class FlashbackHandler : MonoBehaviour
             firstPersonController.enabled = false;
             UIImage.enabled = true;
             UIImage.sprite = flashbacks[3];
+            anim.enabled = true;
             StartCoroutine(Fading());
 
             if (onceSound)
@@ -239,6 +243,7 @@ public class FlashbackHandler : MonoBehaviour
             firstPersonController.enabled = false;
             UIImage.enabled = true;
             UIImage.sprite = flashbacks[4];
+            anim.enabled = true;
             StartCoroutine(Fading());
 
             if (onceSound)
@@ -259,6 +264,7 @@ public class FlashbackHandler : MonoBehaviour
             firstPersonController.enabled = false;
             UIImage.enabled = true;
             UIImage.sprite = flashbacks[5];
+            anim.enabled = true;
             StartCoroutine(Fading());
 
             if (onceSound)
@@ -311,9 +317,9 @@ public class FlashbackHandler : MonoBehaviour
 
     IEnumerator Fading()
     {
-        anim.SetBool("Fade", true);
+        //anim.SetBool("Fade", true);
         yield return new WaitUntil(() => UIImage.color.a == 1);
-        anim.SetBool("Fade", false);
+       //anim.SetBool("Fade", false);
     }
 
     void ResetFlashback()
@@ -327,11 +333,12 @@ public class FlashbackHandler : MonoBehaviour
         PersonFlashback = false;
         UIImage.enabled = false;
         timeLeft = 3f;
-        endFlashback = 5f;
+        endFlashback = 4f;
         once = false;
         onceSound = false;
         firstPersonController.enabled = true;
         source.Stop();
         anim.SetBool("Fade", false);
+        anim.enabled = false;
     }
 }
