@@ -16,7 +16,7 @@ public class CallHandler : MonoBehaviour
     bool playOnce = false;
     bool keyPressedB = false;
 
-    float timeLeft = 5f;
+    float timeLeft = 10f;
 
     // Start is called before the first frame update
     void Start()
