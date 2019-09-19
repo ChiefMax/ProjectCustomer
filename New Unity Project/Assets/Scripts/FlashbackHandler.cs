@@ -53,10 +53,12 @@ public class FlashbackHandler : MonoBehaviour
     float timeLeft = 3f;
     float endFlashback = 4f;
     float wait = 5f;
+    float DisablePhone = 5f;
 
     bool once = false;
     bool onceSound = false;
     bool resetUIFlashback = false;
+    bool TimerStartPhone = false;
 
     bool PartyFlashback = false;
     bool PhoneFlashback = false;
@@ -170,6 +172,17 @@ public class FlashbackHandler : MonoBehaviour
             if (endFlashback < 0)
             {
                 ResetFlashback();
+                TimerStartPhone = true;
+            }
+        }
+
+        if (TimerStartPhone)
+        {
+            DisablePhone -= Time.deltaTime;
+
+            if (DisablePhone <= 0)
+            {
+                PhoneImage.enabled = false;
             }
         }
 
