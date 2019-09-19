@@ -8,5 +8,6 @@ public class CurserScript : MonoBehaviour
     {
         //Set Cursor to not be visible
         Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 }
