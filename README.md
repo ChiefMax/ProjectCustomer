@@ -26,3 +26,14 @@ We want the general public to be aware about what the aftermath is of a fatal ca
 
 After experiencing our game or ‘simulation’ we want people to realize the amount of damage that can occur when you get involved in a traffic accident. Everybody will realize the seriousness of the situation and drive responsibly.
 
+# Socials:
+Lisa Richter: 
+Instagram: https://instagram.com/art.ific1al?igshid=1viuhwywf0myi
+
+LinkedIn: https://www.linkedin.com/in/lisa-richter-390b74188
+
+Joana Stresewski:
+Instagram: https://instagram.com/joanamazed
+
+Max Manenschijn:
+https://www.linkedin.com/in/maxmanenschijn/
