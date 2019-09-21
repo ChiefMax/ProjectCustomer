@@ -6,7 +6,7 @@ This project was created by:
 
 -Fin Rovers | Designer
 
--Lisa Richter | Arist
+-Lisa Richter | Artist
 
 -Joana Stresewski | Artist
 
