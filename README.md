@@ -34,6 +34,7 @@ Instagram: https://instagram.com/art.ific1al?igshid=1viuhwywf0myi
 LinkedIn: https://www.linkedin.com/in/lisa-richter-390b74188
 
 Joana Stresewski:
+
 Instagram: https://instagram.com/joanamazed
 
 Max Manenschijn:
