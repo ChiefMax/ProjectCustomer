@@ -29,7 +29,7 @@ After experiencing our game or ‘simulation’ we want people to realize the am
 # Socials:
 Lisa Richter: 
 
-Instagram: https://instagram.com/art.ific1al?igshid=1viuhwywf0myi
+Instagram: https://www.instagram.com/textura.lucens/?hl=nl
 
 LinkedIn: https://www.linkedin.com/in/lisa-richter-390b74188
 
